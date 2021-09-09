@@ -1,0 +1,13 @@
+  <div class="col-12 w-100 p-0" >
+  <div class="border-bottom-1 border-300 col-12 flex inline" *ngFor="let todo of todos" >
+    <div class="col-10 m-0">
+     <div class="p-field-checkbox">
+        <p-checkbox name="completed" value="todo.completed" [value]="todo.completed"  [inputId]="todo.title" (click)="updateTodo(todo)"></p-checkbox>
+        <label class="pl-5" [for]="todo.title" [ngClass]="{'del': todo.completed === true}">{{todo.title}}</label>
+      </div>
+    </div>
+    <div class="col-2">
+      <i class="pi pi-times text-pink-500 xl:font-bold" (click)="deleteTodo(todo)"></i>
+    </div>
+  </div> 
+  </div>

@@ -1,0 +1,37 @@
+<div class="w-12 flex flex-column justify-content-center align-items-center">
+  <div class="flex align-items-center justify-content-center">
+    <h3>Nada's Todos ({{unCompletedTasks}} remaning)</h3>
+  </div>
+  <div class="w-6 col-12 flex align-items-center justify-content-center border-round border-50 p-0 bg-white">
+    <form #todoForm="ngForm" class="formgroup-inline col-12 p-0">
+      <div class="p-field col-7 flex align-items-start">
+        <label for="todo" class="p-sr-only">To do ...</label>
+        <input id="todo" class="border-white w-12" type="text" required name="title" [(ngModel)]=title pInputText placeholder="Write Your Task">
+      </div>
+      <div class="p-field col-5 flex inline-block p-0">
+        <div class="col-7">
+          <p-dropdown [style]="{'width':'100%'}" class="p-0" [options]=" categoryArr" name="category" ngModel>
+          </p-dropdown>
+        </div>
+        <div class="col-5">
+          <button pButton type="button" value="Submit" [disabled]="todoForm.invalid" (click)="addTodo(todoForm.value)">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class=" selectCat w-6 col-12 flex inline align-items-center justify-content-center border-round border-50 p-0">
+     <div (click)="getAllList()" class="col-1 pointer selectCat">
+      <span>All</span>
+    </div>
+    <div *ngFor="let cat of categoryArr" (click)="getCatList(cat)" class="col-2 pointer">
+      <span>{{cat}}</span>
+    </div>
+    <div class="col-3">
+      <label class="p-2" for="ny">Completed</label>
+      <p-checkbox name="completed" value="" (click)='getcompletedList()' inputId="ny"></p-checkbox>
+    </div>
+  </div>
+    <app-list [list]="todos" class="w-6 col-12 p-0 flex align-items-center justify-content-center border-round border-50 p-0 bg-white">
+    </app-list>
+</div>
