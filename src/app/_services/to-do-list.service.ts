@@ -18,7 +18,6 @@ export class ToDoListService {
         Object.values(resp).map(item => {
           this.addTodo(item);
         });
-        console.log(this.todos);
       }, 
       (error) => { },
       ()=>{}
@@ -26,7 +25,7 @@ export class ToDoListService {
     } else {
       let todoArr = JSON.parse(localStorage.getItem('todoList') as string);
       this.todos = todoArr;
-      console.log(this.todos);   }
+        }
       this.unCompletedTasks = this.todos.filter(todo => todo.completed === false).length;
 
   }

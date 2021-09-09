@@ -25,7 +25,6 @@ export class ToDoListComponent implements OnInit {
       }
     )
   }
-
   ngOnInit(): void {
 
   }
@@ -43,7 +42,6 @@ export class ToDoListComponent implements OnInit {
   }
   getAllList() {
     this.todos = this.toDoListService.todos;
-    console.log(this.todos);
   }
   getCatList(cat: any) {
     this.todos = this.toDoListService.todos.filter(todo => todo.category === cat);

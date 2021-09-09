@@ -9,8 +9,6 @@ import { ToDoListService } from '../_services/to-do-list.service';
 })
 export class ListComponent implements OnInit, OnChanges {
   @Input("list") list!:Array<Task>;
-  completedList: Task[] = [];
-  checked: boolean = true;
    todos: Task[]=[];
 
   constructor(private ToDoListService: ToDoListService) {
@@ -29,7 +27,6 @@ export class ListComponent implements OnInit, OnChanges {
   }
   updateTodo(todo: Task) {
     todo.completed = !todo.completed;
-    console.log(todo);
     this.ToDoListService.updateTodo(todo);
   }
 
